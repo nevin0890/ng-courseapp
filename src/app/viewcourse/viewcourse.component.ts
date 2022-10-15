@@ -11,9 +11,12 @@ export class ViewcourseComponent implements OnInit {
   constructor(private api: ApiService) { 
     this.fetchCourses();
   }
+  status:boolean = false;
   
   fetchCourses = () => {
-    this.api.getCourseList().subscribe((data) => { this.viewCourse = data });
+    this.api.getCourseList().subscribe((data) => {
+      this.viewCourse = data
+    this.status = true});
   }
 
   viewCourse:any=[]
